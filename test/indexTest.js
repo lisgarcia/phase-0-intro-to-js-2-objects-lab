@@ -44,18 +44,6 @@ describe('employees', function() {
     });
   });
   
-  const employee = {} 
-  employee.name="lis"
-  employee.streetAddress="7713 Shal"
-  
-  function destructivelyUpdateEmployeeWithKeyAndValue(employee, key, value) {
-    employee.name="Sam"
-employee.streetAddress="12 Broadway"
-    
-      return employee;
-  }
-
-
 
   describe('deleteFromEmployeeByKey(employee, key)', function () {
     it('deletes `key` from a clone of employee and returns the new employee (it is non-destructive)', function () {
@@ -73,16 +61,6 @@ employee.streetAddress="12 Broadway"
   });
 
  
-
-  function deleteFromEmployeeByKey (employee, key){
-    const newEmployee={...employee}
-    delete newEmployee[key]
-    return newEmployee
-  }
-  function destructivelyDeleteFromEmployeeByKey(employee, key){
-delete employee[key]
-return employee
-}
 
   describe('destructivelyDeleteFromEmployeeByKey(employee, key)', function () {
     it('returns employee without the deleted key/value pair', function () {
