@@ -12,8 +12,8 @@ describe('employees', function() {
       employee.name = 'Sam';
     });
 const employee = {} 
-employee.name="lis"
-employee.streetAddress="7713 Shal"
+employee.name="Sam"
+employee.streetAddress="11 Broadway"
 
 function updateEmployeeWithKeyAndValue (employee, key, value){ 
  const nextEmployee= {...employee}
