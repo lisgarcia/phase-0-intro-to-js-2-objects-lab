@@ -11,15 +11,7 @@ describe('employees', function() {
 
       employee.name = 'Sam';
     });
-const employee = {} 
-employee.name="Sam"
-employee.streetAddress="11 Broadway"
 
-function updateEmployeeWithKeyAndValue (employee, key, value){ 
- const nextEmployee= {...employee}
- nextEmployee[key]=value
- return nextEmployee;
-}
 
 
     it('returns an employee with the original key value pairs and the new key value pair', function () {
