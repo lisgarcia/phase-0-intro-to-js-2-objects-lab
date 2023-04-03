@@ -1,3 +1,5 @@
+const { objDisplay } = require('chai/lib/chai/utils/index.js');
+
 require ( './helpers.js' );
 
 describe('employees', function() {
@@ -9,6 +11,16 @@ describe('employees', function() {
 
       employee.name = 'Sam';
     });
+const employee = {} 
+employee.name="lis"
+employee.streetAddress="7713 Shal"
+
+function updateEmployeeWithKeyAndValue (employee, key, value){ 
+ const nextEmployee= {...employee}
+ nextEmployee[key]=value
+ return nextEmployee;
+}
+
 
     it('returns an employee with the original key value pairs and the new key value pair', function () {
       expect(updateEmployeeWithKeyAndValue(employee, 'streetAddress', '11 Broadway')).to.eql({
@@ -24,6 +36,8 @@ describe('employees', function() {
     });
   });
 
+
+
   describe('destructivelyUpdateEmployeeWithKeyAndValue(employee, key, value)', function () {
     it('updates `employee` with the given `key` and `value` (it is destructive) and returns the entire updated employee', function () {
       expect(destructivelyUpdateEmployeeWithKeyAndValue(employee, 'streetAddress', '12 Broadway')).to.eql({
@@ -37,6 +51,19 @@ describe('employees', function() {
       });
     });
   });
+  
+  const employee = {} 
+  employee.name="lis"
+  employee.streetAddress="7713 Shal"
+  
+  function destructivelyUpdateEmployeeWithKeyAndValue(employee, key, value) {
+    employee.name="Sam"
+employee.streetAddress="12 Broadway"
+    
+      return employee;
+  }
+
+
 
   describe('deleteFromEmployeeByKey(employee, key)', function () {
     it('deletes `key` from a clone of employee and returns the new employee (it is non-destructive)', function () {
@@ -53,6 +80,18 @@ describe('employees', function() {
     });
   });
 
+ 
+
+  function deleteFromEmployeeByKey (employee, key){
+    const newEmployee={...employee}
+    delete newEmployee[key]
+    return newEmployee
+  }
+  function destructivelyDeleteFromEmployeeByKey(employee, key){
+delete employee[key]
+return employee
+}
+
   describe('destructivelyDeleteFromEmployeeByKey(employee, key)', function () {
     it('returns employee without the deleted key/value pair', function () {
       let newEmployee = destructivelyDeleteFromEmployeeByKey(employee, 'name');
@@ -67,4 +106,5 @@ describe('employees', function() {
       expect(employee).to.equal(newEmployee);
     });
   });
+
 });
